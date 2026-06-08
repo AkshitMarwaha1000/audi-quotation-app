@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audi Chandigarh Quotation Creator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section id="loginScreen" class="login-screen">
+      <form id="loginForm" class="panel login-card">
+        <div>
+          <p class="eyebrow">Audi Chandigarh</p>
+          <h1>Quotation Creator</h1>
+          <p class="muted">Sign in to manage car pricing and create quotations.</p>
+        </div>
+
+        <label>
+          Username
+          <input id="username" type="text" autocomplete="username" required>
+        </label>
+
+        <label>
+          Password
+          <input id="password" type="password" autocomplete="current-password" required>
+        </label>
+
+        <p id="loginError" class="error" aria-live="polite"></p>
+        <button type="submit" class="primary-button">Login</button>
+      </form>
+    </section>
+
+    <section id="dashboard" class="dashboard hidden">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Audi Chandigarh</p>
+          <h1>Quotation Dashboard</h1>
+        </div>
+        <button id="logoutButton" type="button" class="secondary-button">Logout</button>
+      </header>
+
+      <div class="dashboard-grid">
+        <section class="panel">
+          <h2>Create Quotation</h2>
+          <form id="quotationForm" class="form-grid">
+            <label>
+              Customer name
+              <input id="customerName" type="text" required>
+            </label>
+
+            <label>
+              Phone number
+              <input id="phoneNumber" type="tel" required>
+            </label>
+
+            <label>
+              Date
+              <input id="quoteDate" type="date" required>
+            </label>
+
+            <label>
+              Car model
+              <select id="carModel" required>
+                <option value="">Select a model</option>
+              </select>
+            </label>
+
+            <label>
+              Car color
+              <input id="quoteColor" type="text">
+            </label>
+
+            <label>
+              Car cost
+              <input id="quoteCost" type="number" min="0" step="1">
+            </label>
+
+            <label>
+              Insurance
+              <input id="quoteInsurance" type="number" min="0" step="1">
+            </label>
+
+            <label>
+              TCS
+              <input id="quoteTcs" type="number" min="0" step="1">
+            </label>
+
+            <label>
+              RTO
+              <input id="quoteRto" type="number" min="0" step="1">
+            </label>
+
+            <label>
+              Misc
+              <input id="quoteMisc" type="number" min="0" step="1">
+            </label>
+
+            <label>
+              Discount %
+              <input id="quoteDiscount" type="number" min="0" max="100" step="0.01">
+            </label>
+
+            <label class="total-field">
+              Total amount
+              <input id="quoteTotal" type="text" readonly>
+            </label>
+
+            <p id="quotationError" class="error form-wide" aria-live="polite"></p>
+            <button type="submit" class="primary-button form-wide">Generate Quotation</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>Edit Car Pricing</h2>
+          <form id="pricingForm" class="form-grid">
+            <label>
+              Model name
+              <input id="pricingModel" type="text" required>
+            </label>
+
+            <label>
+              Color
+              <input id="pricingColor" type="text" required>
+            </label>
+
+            <label>
+              Cost
+              <input id="pricingCost" type="number" min="0" step="1" required>
+            </label>
+
+            <label>
+              Insurance
+              <input id="pricingInsurance" type="number" min="0" step="1" required>
+            </label>
+
+            <label>
+              TCS
+              <input id="pricingTcs" type="number" min="0" step="1" required>
+            </label>
+
+            <label>
+              RTO
+              <input id="pricingRto" type="number" min="0" step="1" required>
+            </label>
+
+            <label>
+              Misc
+              <input id="pricingMisc" type="number" min="0" step="1" required>
+            </label>
+
+            <button type="submit" class="primary-button form-wide">Save Car Pricing</button>
+          </form>
+        </section>
+      </div>
+
+      <section class="panel saved-cars-panel">
+        <h2>Saved Cars</h2>
+        <div id="savedCarsList" class="saved-cars-list"></div>
+      </section>
+    </section>
+
+    <section id="quotationView" class="quotation-view hidden">
+      <div class="screen-actions">
+        <button id="printButton" type="button" class="primary-button">Save as PDF / Print</button>
+        <button id="backButton" type="button" class="secondary-button">Back to Dashboard</button>
+      </div>
+
+      <article id="quotationPage" class="quotation-page">
+        <div class="watermark">Audi</div>
+        <header class="quote-header">
+          <img class="audi-logo" src="assets/audi-logo.png?v=2" alt="Audi logo">
+          <div class="slogan"><strong>Audi</strong> Vorsprung durch Technik</div>
+        </header>
+
+        <section class="quote-content">
+          <p class="eyebrow">Audi Chandigarh</p>
+          <h2>Vehicle Quotation</h2>
+          <div id="quoteDetails"></div>
+        </section>
+
+        <footer class="quote-footer">
+          <div class="footer-rule"></div>
+          <div><strong>Audi</strong> Chandigarh</div>
+          <p>Your dedicated Audi team</p>
+        </footer>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
